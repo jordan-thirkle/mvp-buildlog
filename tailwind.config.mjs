@@ -1,0 +1,1 @@
+export default{content:['./src/**/*.{astro,tsx}'],darkMode:'class',theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif'],display:['Outfit','system-ui','sans-serif'],mono:['JetBrains Mono','monospace']}}},plugins:[]};

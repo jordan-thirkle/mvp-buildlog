@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import { Dashboard } from '../components/Dashboard';
+---
+<Base>
+<main class="flex-grow">
+  <nav class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between"><a href="/" class="flex items-center gap-2"><div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-black font-bold">B</div><span class="text-white font-bold font-display">BuildLog</span></a><a href="#app" class="btn !text-sm !px-4 !py-2">Open App</a></nav>
+
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-12 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-bold text-emerald-400 mb-8">Free tier · No signup · Local-first</div>
+    <h1 class="text-white mb-6 leading-[1.1]">Build in public.<br/><span class="bg-gradient-to-r from-emerald-400 to-emerald-200 bg-clip-text text-transparent">Automatically.</span></h1>
+    <p class="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10">Log your build activity. Auto-generate devlog entries. Draft X posts. Export your timeline. Everything an indie maker needs to ship in public — in one dashboard.</p>
+    <div class="flex flex-wrap gap-4 justify-center"><a href="#app" class="btn">Try Free</a><a href="#pricing" class="btn2">See Pricing</a></div>
+  </section>
+
+  <section id="app" class="mx-auto max-w-6xl px-6 pb-16">
+    <div class="mb-8 text-center"><h2 class="text-white mb-3">Your Dashboard</h2><p class="text-zinc-500">Everything saves locally. Nothing leaves your browser until you export.</p></div>
+    <div class="card"><Dashboard client:load /></div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-6 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        {icon:'📝',title:'Log Activity',desc:'Track every build, deploy, milestone, and learning. One-click entry. Local storage. No accounts.'},
+        {icon:'📋',title:'Generate Devlogs',desc:'Auto-generate MDX devlog entries from your activity — ready to paste into your Astro or Next.js site.'},
+        {icon:'🐦',title:'Draft X Posts',desc:'Each entry becomes a tweet. Groups become threads. Copy, paste, post. Consistent cadence, zero effort.'},
+      ].map(f=><div class="card text-center"><div class="text-3xl mb-3">{f.icon}</div><h3 class="text-white text-lg mb-2">{f.title}</h3><p class="text-zinc-400 text-sm">{f.desc}</p></div>)}
+    </div>
+  </section>
+
+  <section id="pricing" class="mx-auto max-w-4xl px-6 pb-16">
+    <div class="mb-8 text-center"><h2 class="text-white mb-3">Simple Pricing</h2><p class="text-zinc-500">Free to start. Upgrade when you need more.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="card border-zinc-800"><div class="text-center"><p class="text-sm text-zinc-500 mb-1">Free</p><p class="text-4xl font-bold text-white font-display mb-1">$0</p><p class="text-zinc-500 text-sm">Forever</p></div><ul class="mt-6 space-y-2 text-sm text-zinc-400"><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Unlimited entries</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Devlog MDX generator</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Single tweet drafts</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> JSON/Markdown export</li><li class="flex items-center gap-2"><span class="text-zinc-600">—</span> Thread generation</li><li class="flex items-center gap-2"><span class="text-zinc-600">—</span> GitHub commit sync</li></ul></div>
+      <div class="card border-emerald-500/20 bg-emerald-500/5"><div class="text-center"><p class="text-sm text-emerald-400 mb-1">Pro</p><p class="text-4xl font-bold text-white font-display mb-1">$9</p><p class="text-zinc-500 text-sm">/month</p></div><ul class="mt-6 space-y-2 text-sm text-zinc-400"><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Everything in Free</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Thread generation</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> GitHub commit sync</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Embeddable activity feed</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Priority support</li><li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Early access to new features</li></ul><div class="mt-6 text-center"><a href="https://buy.stripe.com/test_bIY9Bp4ZkfZW3McfYY" target="_blank" rel="nofollow" class="btn w-full text-center justify-center">Get Pro →</a></div></div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-6 pb-12 text-center"><div class="card border-zinc-800 bg-zinc-900/30 min-h-[100px] flex items-center justify-center"><p class="text-sm text-zinc-600">Ad slot — <a href="https://www.carbonads.net" class="text-zinc-500 hover:text-zinc-300 underline" target="_blank" rel="nofollow">Advertise here</a></p></div></section>
+
+  <footer class="mx-auto max-w-6xl px-6 pb-12 text-center border-t border-zinc-800 pt-8">
+    <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-500 mb-4"><a href="https://thirkle.vercel.app" class="hover:text-white transition-colors">Built by ThirkleBot</a><span>·</span><a href="https://thirkle.vercel.app/thirklebot" class="hover:text-white transition-colors">Agent</a><span>·</span><a href="https://ko-fi.com/jordanthirkle" target="_blank" rel="nofollow" class="hover:text-amber-400 transition-colors">☕ Support</a><span>·</span><a href="https://stripe.com" target="_blank" rel="nofollow sponsored" class="hover:text-emerald-400 transition-colors">Payments by Stripe</a></div>
+    <p class="text-xs text-zinc-600">BuildLog · Build-in-public dashboard for indie makers · All data stored locally · Some links are affiliate referrals</p>
+  </footer>
+</main>
+</Base>
